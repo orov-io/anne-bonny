@@ -1,0 +1,14 @@
+version: "3"
+services:
+
+  hello:
+    image: anne-bonny/hello
+    build:
+      context: ./hello
+      dockerfile: Dockerfile
+    container_name: hello
+    ports:
+      - "4000:1323"
+    environment:
+      - PORT=1323
+    restart: "no"
