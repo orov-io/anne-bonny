@@ -30,7 +30,7 @@ services:
     build:
       context: ./caddy
       dockerfile: Dockerfile
-    restart: "no"
+    restart: "unless-stopped"
     ports:
       - "80:80"
       - "443:443"
@@ -41,6 +41,7 @@ services:
     env_file:
       - ./caddy/.env
 
+  
 volumes:
   caddy_data:
     driver: local

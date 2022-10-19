@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"net/url"
 	"os"
@@ -57,8 +56,6 @@ func parseStorageServiceHost() {
 func main() {
 	app := maryread.Default()
 	addHandlers(app)
-	routes, _ := json.Marshal(app.Router().Routes())
-	fmt.Printf("Routes: %+v", string(routes))
 	initApp(app)
 }
 

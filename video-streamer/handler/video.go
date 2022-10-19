@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"net/http"
 	"net/url"
 
@@ -32,6 +31,5 @@ func (v *Video) GetVideoHandler(c echo.Context) error {
 }
 
 func (v *Video) AddHandlers(e *echo.Echo) {
-	fmt.Println("adding video")
 	e.GET(videoPath, v.GetVideoHandler)
 }
