@@ -17,6 +17,9 @@ tmp
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-## Test env, it can contains keys to some services
+## Some .env, they can contains keys to some services
+## Use local.env to share defaults and examples.
 testing.env
 dokku.env
+override.env
+.env
