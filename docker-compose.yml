@@ -1,7 +1,7 @@
 version: "3"
 services:
   video-streamer:
-    image: orovium/video-streamer
+    image: orovium/ab-video-streamer
     build:
       context: ./video-streamer
       dockerfile: Dockerfile
@@ -13,7 +13,7 @@ services:
     restart: "no"
 
   storage-service:
-    image: orovium/storage-service
+    image: orovium/ab-storage-service
     build: 
       context: ./storage/azure
       dockerfile: Dockerfile
