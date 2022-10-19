@@ -1,14 +1,48 @@
 version: "3"
 services:
 
-  hello:
-    image: anne-bonny/hello
+  video-streamer:
+    image: orovium/video-streamer
     build:
-      context: ./hello
+      context: ./video-streamer
       dockerfile: Dockerfile
-    container_name: hello
-    ports:
-      - "4000:1323"
+    container_name: video-streamer
     environment:
-      - PORT=1323
+      - PORT=80
+    env_file:
+      - ./video-streamer/.env
     restart: "no"
+
+  storage-service:
+    image: orovium/storage-service
+    build: 
+      context: ./storage/azure
+      dockerfile: Dockerfile
+    container_name: storage-service
+    environment:
+      - PORT=80
+    env_file:
+      - ./storage/azure/.env
+
+  caddy:
+    image: orovium/caddy
+    container_name: caddy
+    build:
+      context: ./caddy
+      dockerfile: Dockerfile
+    restart: "no"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    env_file:
+      - ./caddy/.env
+
+volumes:
+  caddy_data:
+    driver: local
+  caddy_config:
+    driver: local

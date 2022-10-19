@@ -1,3 +1,6 @@
 go 1.19
 
-use ./hello
+use (
+	./storage/azure
+	./video-streamer
+)

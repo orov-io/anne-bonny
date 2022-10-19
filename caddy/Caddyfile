@@ -1,0 +1,17 @@
+{$CADDY_DOMAIN} {
+    route /video/ping {
+        uri strip_prefix /video
+        reverse_proxy video-streamer
+    }
+
+    reverse_proxy /video video-streamer
+    reverse_proxy /video/* video-streamer
+
+    route /storage/ping {
+        uri strip_prefix /storage
+        reverse_proxy storage-service
+    }
+
+    ## Uncomment below line to expose the storage service outside docker-compose
+    reverse_proxy /storage/* storage-service
+}

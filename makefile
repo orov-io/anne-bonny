@@ -1,6 +1,10 @@
-up:
+up: build
 	@echo "Booting anne-bonny services with docker-compose"
-	@docker-compose up -d --build
+	@docker-compose up -d
+
+build:
+	@echo "Building anne-bonny services"
+	@docker-compose build --parallel
 
 logs:
 	@echo "Tailing anne-bonny containers logs"

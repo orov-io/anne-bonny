@@ -19,3 +19,4 @@ tmp
 
 ## Test env, it can contains keys to some services
 testing.env
+dokku.env

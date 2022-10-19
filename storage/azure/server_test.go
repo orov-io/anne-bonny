@@ -29,8 +29,8 @@ func TestAddHandlers(t *testing.T) {
 		},
 		{
 			Method: http.MethodGet,
-			Path:   "/hello",
-			Name:   "handler.(*Hello).GetHelloHandler",
+			Path:   "/storage/:videoName",
+			Name:   "handler.(*Video).GetVideoHandler",
 		},
 	}
 	routes := app.Router().Routes()
