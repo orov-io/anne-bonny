@@ -1,6 +1,5 @@
 version: "3"
 services:
-
   video-streamer:
     image: orovium/video-streamer
     build:
@@ -41,9 +40,25 @@ services:
     env_file:
       - ./caddy/.env
 
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-truman}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-capote}
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    logging:
+      driver: ${POSTGRES_LOG_DRIVER:-none}
   
 volumes:
   caddy_data:
     driver: local
   caddy_config:
+    driver: local
+  postgres:
     driver: local
