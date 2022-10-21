@@ -6,9 +6,11 @@ import (
 	"os"
 	"strconv"
 
+	_ "github.com/lib/pq" // Here we initializes the database
 	"github.com/orov-io/anne-bonny/video-streamer/handler"
 	"github.com/orov-io/maryread"
 	mrHandler "github.com/orov-io/maryread/handler"
+	"github.com/orov-io/maryread/middleware"
 )
 
 const portEnvKey = "PORT"
@@ -55,6 +57,9 @@ func parseStorageServiceHost() {
 
 func main() {
 	app := maryread.Default()
+	// To use this, you must import the pq driver as:  _ "github.com/lib/pq"
+	// TODO: Put this in this README and in the maryread README
+	app.Router().Use(middleware.SQLX())
 	addHandlers(app)
 	initApp(app)
 }

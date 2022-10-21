@@ -25,6 +25,9 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 - [] Jaeaguer
 - [] Kubernetes
 - [] Local CI/CD tool with Jenkins or GitLabCI
+- [] Configure caddy and localhost to generate local certificates for *.annebonny.dev and serve they as in [this tutorial](https://medium.com/@devahmedshendy/traditional-setup-run-local-development-over-https-using-caddy-964884e75232)
+- [] Add migrations with [goose]("https://github.com/pressly/goose")
+- [] Add ghost as a blog for Anne Bonny
 
 ## Tutorial
 

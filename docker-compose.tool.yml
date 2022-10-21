@@ -1,8 +1,21 @@
 version: '3'
 
 services:
-  adminer:
-    image: adminer
-    restart: unless-stopped
+  pgadmin:
+    container_name: ab-pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-truman@capote.io}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-TrumanCapote1}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+       - pgadmin:/var/lib/pgadmin
     ports:
-      - 8080:8080
+      - "${PGADMIN_PORT:-5050}:80"
+    restart: unless-stopped
+    logging:
+      driver: ${PGADMIN_LOG_DRIVER:-none}
+
+volumes:
+  pgadmin:
+    driver: local

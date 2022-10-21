@@ -20,7 +20,7 @@ logs:
 	@echo "Tailing anne-bonny containers logs"
 	@docker-compose logs -f
 
-down: 
+down:
 	@echo "Shutting down all anne-bonny containers"
 	-@docker-compose down
 

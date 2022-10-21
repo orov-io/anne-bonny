@@ -28,7 +28,6 @@ FROM alpine
 WORKDIR /app
 
 COPY --from=build-env /app/app ./
-COPY video ./video
 
 #TODO: ADD HEALTHCHECK
 
