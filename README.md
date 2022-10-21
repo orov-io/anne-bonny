@@ -12,15 +12,19 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 
 - [] Tutorial
 - [] Add Database to a single service
+- [] Use echo+Validator to validate request data
+- [] Add hot reloading to docker-compose
 - [] Healthcheck in dockerfile
 - [] Add a front client (use flutter)
 - [] Swagger auto generation
-- [] Add a golang sdk api client for entire API.
+- [] Add a public golang sdk api client for the exposed API.
+- [] Add a private golang sdk api client for both the exposed and the internal services API.
 - [] Deployer
 - [] IaC
-- [] KrakenD : It will coexist with caddy? Caddy will do the krakenD for no local overcharging?
+- [] KrakenD : It will coexist with caddy? Caddy will do the krakenD tas for no local overcharging?
 - [] Jaeaguer
 - [] Kubernetes
+- [] Local CI/CD tool with Jenkins or GitLabCI
 
 ## Tutorial
 

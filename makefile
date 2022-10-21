@@ -41,3 +41,7 @@ logs-tool:
 down-tool: 
 	@echo "Shutting down all anne-bonny containers"
 	-@docker-compose -f docker-compose.tool.yml down
+
+release:
+	@echo "Firing new release helper"
+	@npx release-it
