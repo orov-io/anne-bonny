@@ -10,6 +10,7 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 
 ## TODOS
 
+- [] History service with indirect communication with the video-streamer service. Use rabbit.
 - [] Tutorial
 - [x] Add Database to a single service
 - [x] Use squirrel to build SQL statements
@@ -42,6 +43,7 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 - [] Add to the client mock responses. At now, to test the video handler, you must up and expose the storage service
 - [] Find a way to load non tracked .env files to the makefile.
 - [] Install goose in the dev Dockerfile target and provide a make command per service to execute migrations from the running container. This way, you will not install goose in the host.
+- [] Recovery system. Store all CUD events in the system in a mongo collection. Provide a way to restore it to each microservice...
 
 ## Tutorial
 
