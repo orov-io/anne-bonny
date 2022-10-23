@@ -1,9 +1,10 @@
 ##
-## STEP 1 - BUILD
 ##
-
-FROM golang:alpine AS build-env
-
+## STEP 0 - BASE
+##
+## Install and download dependencies
+##
+FROM golang:alpine AS base
 # Creating a work directory inside the image
 WORKDIR /app
 
@@ -14,6 +15,30 @@ COPY go.sum ./
 # download Go modules and dependencies
 RUN go mod download
 
+
+##
+##
+## STEP 1 - DEV MODE
+##
+## Dev mode expects that you mount the service folder in /app as a volume
+##
+
+FROM base AS dev
+
+WORKDIR /app
+
+RUN go install github.com/cosmtrek/air@latest
+ENTRYPOINT [ "air" ]
+
+##
+## STEP 2 - BUILDER
+##
+
+FROM base AS build-env
+
+# Creating a work directory inside the image
+WORKDIR /app
+
 # copy directory files
 COPY . .
 
@@ -23,7 +48,7 @@ RUN go build -o ./app
 ##
 ## STEP 2 - DEPLOY
 ##
-FROM alpine
+FROM alpine as prod
 
 WORKDIR /app
 

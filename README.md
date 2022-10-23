@@ -12,14 +12,14 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 
 - [] Tutorial
 - [x] Add Database to a single service
-- [] Use squirrel to build SQL statements
-- [] Use echo+Validator to validate request data
-- [] Add hot reloading to docker-compose
+- [x] Use squirrel to build SQL statements
 - [] Healthcheck in dockerfile
+- [x] Use echo+Validator to validate request data
 - [] Add a front client (use flutter)
 - [] Swagger auto generation
 - [] Add a public golang sdk api client for the exposed API.
 - [] Add a private golang sdk api client for both the exposed and the internal services API.
+- [x] Add hot reloading to docker-compose
 - [] Deployer
 - [] IaC
 - [] KrakenD : It will coexist with caddy? Caddy will do the krakenD tas for no local overcharging?
@@ -41,6 +41,7 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 - [] Add Benchmark tests.
 - [] Add to the client mock responses. At now, to test the video handler, you must up and expose the storage service
 - [] Find a way to load non tracked .env files to the makefile.
+- [] Install goose in the dev Dockerfile target and provide a make command per service to execute migrations from the running container. This way, you will not install goose in the host.
 
 ## Tutorial
 

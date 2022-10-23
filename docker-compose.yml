@@ -5,7 +5,10 @@ services:
     build:
       context: ./video-streamer
       dockerfile: Dockerfile
+      target: dev
     container_name: video-streamer
+    volumes:
+      - ./video-streamer:/app
     environment:
       - PORT=80
     env_file:
@@ -17,7 +20,10 @@ services:
     build: 
       context: ./storage/azure
       dockerfile: Dockerfile
+      target: dev
     container_name: storage-service
+    volumes:
+      - ./storage/azure:/app
     environment:
       - PORT=80
     env_file:
