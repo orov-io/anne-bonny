@@ -1,6 +1,7 @@
-github.com/DATA-DOG/go-sqlmock v1.5.0/go.mod h1:f/Ixk793poVmq4qj/V1dPUg2JEAKC73Q5eFN3EC/SaM=
 github.com/mattn/go-sqlite3 v1.14.15/go.mod h1:2eHXhiwb8IkHr+BDWZGa96P6+rkvnG63S2DGjv9HUNg=
 github.com/orov-io/maryread v0.0.9/go.mod h1:Q8NkVuzEMRHh1DB3JWO40NMTY4qmXA+JJvLiUYxEqtM=
+github.com/orov-io/maryread v0.0.19 h1:LhWxPEPfWR7FtQgU9IkNgSDa335DCS/OAHz0arFkf68=
+github.com/orov-io/maryread v0.0.19/go.mod h1:vvMMFjckCqKqkt1AZVKQOGO+eii816evNRGQsS1VDHM=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 golang.org/x/crypto v0.0.0-20210817164053-32db794688a5/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
 golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa/go.mod h1:IxCIyHEi3zRg3s0A5j5BB6A9Jmi73HwBIUl50j+osU4=

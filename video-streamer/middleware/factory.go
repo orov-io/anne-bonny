@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"context"
+	"errors"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -23,6 +24,10 @@ var (
 	DefaultFactoryConfig = InjectFactoryConfig{
 		Skipper: middleware.DefaultSkipper,
 	}
+)
+
+var (
+	ErrFactoryNotFound = errors.New("unable to find factory in provided context")
 )
 
 func InjectFactory() echo.MiddlewareFunc {
@@ -51,4 +56,22 @@ func InjectFactoryWithConfig(config InjectFactoryConfig) echo.MiddlewareFunc {
 			return next(c)
 		}
 	}
+}
+
+func GetFactory(c echo.Context) (*model.Factory, error) {
+	factory, ok := c.Get(factoryContextKey).(*model.Factory)
+	if !ok {
+		return nil, ErrFactoryNotFound
+	}
+
+	return factory, nil
+}
+
+func MustGetFactory(c echo.Context) *model.Factory {
+	factory, err := GetFactory(c)
+	if err != nil {
+		panic(err)
+	}
+
+	return factory
 }

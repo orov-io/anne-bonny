@@ -1,10 +1,14 @@
 package handler
 
 import (
+	"errors"
 	"net/http"
 	"net/url"
 
 	"github.com/labstack/echo/v4"
+	m "github.com/orov-io/anne-bonny/video-streamer/middleware"
+	"github.com/orov-io/anne-bonny/video-streamer/model/video"
+	"github.com/orov-io/maryread"
 )
 
 type Video struct {
@@ -20,11 +24,27 @@ func NewVideoHandler(storageServiceHost *url.URL) *Video {
 	}
 }
 
-type GetVideoRequest struct {
+type getVideoQueryRequest struct {
+	Id string `query:"id" validate:"required,uuid"`
 }
 
 func (v *Video) GetVideoHandler(c echo.Context) error {
-	storageVideoURI := v.storageServiceHost.JoinPath("/storage/SampleVideo_1280x720_1mb.mp4")
+	query := new(getVideoQueryRequest)
+	err := maryread.Bindlidate(c, query)
+	if err != nil {
+		return err
+	}
+
+	currentVideo, err := m.MustGetFactory(c).Video.GetVideo(query.Id)
+
+	if err != nil {
+		if errors.Is(err, video.ErrVideoNotFound) {
+			return echo.NewHTTPError(http.StatusNotFound, err.Error())
+		}
+		return err
+	}
+
+	storageVideoURI := v.storageServiceHost.JoinPath("/storage/").JoinPath(currentVideo.Path)
 
 	resp, err := http.Get(storageVideoURI.String())
 	if err != nil {

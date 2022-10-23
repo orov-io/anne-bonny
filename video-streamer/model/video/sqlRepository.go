@@ -2,6 +2,8 @@ package video
 
 import (
 	"context"
+	"database/sql"
+	"errors"
 
 	"github.com/google/uuid"
 	"github.com/jmoiron/sqlx"
@@ -40,9 +42,15 @@ func NewVideoSQLRepository(ctx context.Context, db *sqlx.DB) *SQLRepository {
 
 func (r *SQLRepository) GetVideo(id string) (*Video, error) {
 	dbVideo := videoSQL{}
-	// TODO: Use squirrel
-	err := r.dbx.Get(&dbVideo, "SELECT * FROM video WHERE uuid=$1", id)
+	s, args, err := getVideoByUUIDSQL(id).ToSql()
 	if err != nil {
+		return nil, err
+	}
+	err = r.dbx.Get(&dbVideo, s, args...)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, ErrVideoNotFound
+		}
 		return nil, err
 	}
 

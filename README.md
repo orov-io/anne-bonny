@@ -39,6 +39,7 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 - [] Basic SQL test data seeder per service
 - [] Use the client to seed the application with test data
 - [] Add Benchmark tests.
+- [] Add to the client mock responses. At now, to test the video handler, you must up and expose the storage service
 
 ## Tutorial
 
