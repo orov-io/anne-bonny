@@ -1,12 +1,11 @@
-ifneq ("$(wildcard $(local.env))","")
-    include local.env
-	export $(shell sed 's/=.*//' local.env)
-endif
+include testing.env
+export $(shell sed 's/=.*//' testing.env)
 
-ifneq ("$(wildcard $(override.env))","")
-    include override.env
-	export $(shell sed 's/=.*//' override.env)
-endif
+include local.env
+export $(shell sed 's/=.*//' local.env)
+
+include override.env
+export $(shell sed 's/=.*//' override.env)
 
 up: build
 	@echo "Booting anne-bonny services with docker-compose"
@@ -48,3 +47,10 @@ down-tool:
 release:
 	@echo "Firing new release helper"
 	@npx release-it
+
+test-report:
+	@echo "Generating test report"
+	@go test -coverprofile=coverage.out ./video-streamer/... ./storage/azure/...
+
+test-review: test-report
+	@go tool cover -html=coverage.out

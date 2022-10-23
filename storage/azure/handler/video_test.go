@@ -30,7 +30,7 @@ func TestGetVideoHandler(t *testing.T) {
 		return
 	}
 
-	req := httptest.NewRequest(http.MethodGet, "/video/SampleVideo_1280x720_1mb.mp4", nil)
+	req := httptest.NewRequest(http.MethodGet, "/storage/SampleVideo_1280x720_1mb.mp4", nil)
 	rec := httptest.NewRecorder()
 
 	e.ServeHTTP(rec, req)

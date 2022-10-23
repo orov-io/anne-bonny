@@ -2,7 +2,6 @@ package video
 
 import (
 	"context"
-	"database/sql"
 	"regexp"
 	"testing"
 
@@ -46,6 +45,6 @@ func TestSQLRepository_GetVideo_DBError(t *testing.T) {
 	video, err := repo.GetVideo(videoSQLRepoTestInvalidUUID)
 	assert.Error(t, err)
 	assert.Nil(t, video)
-	assert.Equal(t, sql.ErrNoRows, err)
+	assert.Equal(t, ErrVideoNotFound, err)
 	assert.NoError(t, mock.ExpectationsWereMet())
 }

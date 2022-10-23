@@ -40,12 +40,19 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 - [] Use the client to seed the application with test data
 - [] Add Benchmark tests.
 - [] Add to the client mock responses. At now, to test the video handler, you must up and expose the storage service
+- [] Find a way to load non tracked .env files to the makefile.
 
 ## Tutorial
+
+You must have both a "testing.env" file and a "override.env" file in the root of the project in order to invoque the make commands.
 
 - General Env Vars
 - Repos Env Vars
 - Running locally
+- Running test
+-- Running all test in vs
+-- Debugging test in vs code
+-- Generate a test report and review it in a browse.
 - Deploying
 - Tools
 - direnv to load .envrc (simplify your life testing migrations, for example).
