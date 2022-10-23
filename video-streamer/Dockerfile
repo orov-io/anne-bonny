@@ -27,6 +27,7 @@ FROM alpine
 
 WORKDIR /app
 
+COPY migration ./migration
 COPY --from=build-env /app/app ./
 
 #TODO: ADD HEALTHCHECK

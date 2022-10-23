@@ -1,4 +1,4 @@
-package videoModel
+package video
 
 import "github.com/google/uuid"
 

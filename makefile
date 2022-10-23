@@ -30,6 +30,9 @@ up-tool:
 	@echo "Booting anne-bonny tools with docker compose"
 	@docker-compose -f docker-compose.tool.yml up -d
 
+# tool is a shortcut of up-tool so you can type make up tool logs :)
+tool: up-tool
+
 build-tool:
 	@echo "Building anne-bonny services"
 	@docker-compose -f docker-compose.tool.yml build --parallel

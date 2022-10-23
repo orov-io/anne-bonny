@@ -8,6 +8,7 @@ import (
 
 	_ "github.com/lib/pq" // Here we initializes the database
 	"github.com/orov-io/anne-bonny/video-streamer/handler"
+	vsMiddleware "github.com/orov-io/anne-bonny/video-streamer/middleware"
 	"github.com/orov-io/maryread"
 	mrHandler "github.com/orov-io/maryread/handler"
 	"github.com/orov-io/maryread/middleware"
@@ -59,7 +60,8 @@ func main() {
 	app := maryread.Default()
 	// To use this, you must import the pq driver as:  _ "github.com/lib/pq"
 	// TODO: Put this in this README and in the maryread README
-	app.Router().Use(middleware.SQLX())
+	app.Router().Use(middleware.NewSQLX().Default())
+	app.Router().Use(vsMiddleware.InjectFactory())
 	addHandlers(app)
 	initApp(app)
 }

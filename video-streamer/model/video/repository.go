@@ -1,5 +1,5 @@
-package videoModel
+package video
 
-type VideoRepository interface {
+type Repository interface {
 	GetVideo(id string) (*Video, error)
 }

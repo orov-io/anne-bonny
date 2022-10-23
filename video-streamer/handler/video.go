@@ -8,6 +8,7 @@ import (
 )
 
 type Video struct {
+	// This will disappear when we code the private sdk and inject it in the context.
 	storageServiceHost *url.URL
 }
 
@@ -17,6 +18,9 @@ func NewVideoHandler(storageServiceHost *url.URL) *Video {
 	return &Video{
 		storageServiceHost: storageServiceHost,
 	}
+}
+
+type GetVideoRequest struct {
 }
 
 func (v *Video) GetVideoHandler(c echo.Context) error {

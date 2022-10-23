@@ -11,7 +11,8 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 ## TODOS
 
 - [] Tutorial
-- [] Add Database to a single service
+- [x] Add Database to a single service
+- [] Use squirrel to build SQL statements
 - [] Use echo+Validator to validate request data
 - [] Add hot reloading to docker-compose
 - [] Healthcheck in dockerfile
@@ -26,8 +27,18 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 - [] Kubernetes
 - [] Local CI/CD tool with Jenkins or GitLabCI
 - [] Configure caddy and localhost to generate local certificates for *.annebonny.dev and serve they as in [this tutorial](https://medium.com/@devahmedshendy/traditional-setup-run-local-development-over-https-using-caddy-964884e75232)
-- [] Add migrations with [goose]("https://github.com/pressly/goose")
+- [x] Add migrations with [goose]("https://github.com/pressly/goose")
 - [] Add ghost as a blog for Anne Bonny
+- [] Check golang generics in order to know if you can add the factory injection in maryread.
+- [] Concurrency example
+- [] Cronjobs. Create a new user service and allow to create temp users (6 hours, 3 days, 1 week).
+- [] Use release-it to app version management.
+- [] GRPC. Let maryread start in grcp mode?
+- [] Websockets example.
+- [] Integration tests with the client.
+- [] Basic SQL test data seeder per service
+- [] Use the client to seed the application with test data
+- [] Add Benchmark tests.
 
 ## Tutorial
 
@@ -36,3 +47,4 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 - Running locally
 - Deploying
 - Tools
+- direnv to load .envrc (simplify your life testing migrations, for example).

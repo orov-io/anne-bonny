@@ -24,3 +24,27 @@ tidy:
 prepare: tidy
 	@echo "Installing air to hot-reloading"
 	@go install github.com/cosmtrek/air@latest
+
+migrate-up:
+	@echo "Applying pending migrations"
+	@goose -dir ./migration up
+
+migrate-up-one:
+	@echo "Applying next pending mitration"
+	@goose -dir ./migration up-by-one
+
+migrate-down:
+	@echo "Reverting lastest migration"
+	@goose -dir ./migration down
+
+migrate-reset:
+	@echo "Reverting all migrations"
+	@goose -dir ./migration reset
+
+migrate-redo:
+	@echo "Re-run lastest migration"
+	@goose -dir ./migration redo
+
+migrate-status:
+	@echo "Listing migration status"
+	@goose -dir ./migration status
