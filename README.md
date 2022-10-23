@@ -32,7 +32,7 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 - [] Check golang generics in order to know if you can add the factory injection in maryread.
 - [] Concurrency example
 - [] Cronjobs. Create a new user service and allow to create temp users (6 hours, 3 days, 1 week).
-- [] Use release-it to app version management.
+- [x] Use release-it to app version management.
 - [] GRPC. Let maryread start in grcp mode?
 - [] Websockets example.
 - [] Integration tests with the client.
