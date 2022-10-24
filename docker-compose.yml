@@ -60,6 +60,16 @@ services:
     restart: unless-stopped
     logging:
       driver: ${POSTGRES_LOG_DRIVER:-none}
+
+  rabbit:
+    container_name: ab-rabbit
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    restart: unless-stopped
+    logging:
+      driver: ${RABBIT_LOG_DRIVER:-none}
   
 volumes:
   caddy_data:

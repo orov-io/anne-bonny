@@ -16,14 +16,15 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 - [x] Use squirrel to build SQL statements
 - [] Healthcheck in dockerfile
 - [x] Use echo+Validator to validate request data
-- [] Add a front client (use flutter)
+- [] Add a front client (use flutter?)
 - [] Swagger auto generation
 - [] Add a public golang sdk api client for the exposed API.
 - [] Add a private golang sdk api client for both the exposed and the internal services API.
 - [x] Add hot reloading to docker-compose
+- [] Add redis and a cache example.
 - [] Deployer
 - [] IaC
-- [] KrakenD : It will coexist with caddy? Caddy will do the krakenD tas for no local overcharging?
+- [] KrakenD : It will coexist with caddy? Caddy will do the krakenD task for no local overcharging?
 - [] Jaeaguer
 - [] Kubernetes
 - [] Local CI/CD tool with Jenkins or GitLabCI
@@ -36,7 +37,7 @@ Please, provide env vars for testing in a file called testing.env at repo root f
 - [x] Use release-it to app version management.
 - [] GRPC. Let maryread start in grcp mode?
 - [] Websockets example.
-- [] Integration tests with the client.
+- [] Integration tests using the sdk.
 - [] Basic SQL test data seeder per service
 - [] Use the client to seed the application with test data
 - [] Add Benchmark tests.
