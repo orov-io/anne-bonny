@@ -9,6 +9,8 @@ services:
     container_name: video-streamer
     volumes:
       - ./video-streamer:/app
+    ports:
+      - "1434:80"
     environment:
       - PORT=80
     env_file:
@@ -24,6 +26,8 @@ services:
     container_name: storage-service
     volumes:
       - ./storage/azure:/app
+    ports:
+      - "1435:80"
     environment:
       - PORT=80
     env_file:
